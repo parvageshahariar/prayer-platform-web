@@ -1,1 +1,1 @@
-# prayer-platform-api
+# prayer-platform-web
