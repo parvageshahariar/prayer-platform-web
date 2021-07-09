@@ -12,11 +12,11 @@
         @endphp
         @for ($time = 1; $time <= 24; $time++)
             @if ($time <= 12)
-                <div class="border-t">{{ $time }}pm</div>
-                <div class="mt-3">{{ $faker->name() }}</div>
+                <div class="pt-2 border-t font-bold">{{ $time }}pm</div>
+                <div class="mb-2">{{ $faker->name() }}</div>
             @else
-                <div class="border-t">{{ $time-12 }}am</div>
-                <div class="mt-3">{{ $faker->name() }}</div>
+                <div class="pt-2 border-t font-bold">{{ $time-12 }}am</div>
+                <div class="mb-2">{{ $faker->name() }}</div>
             @endif
         @endfor
     </div>
