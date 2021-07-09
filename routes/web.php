@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ Route::get('/', function () {
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::post('/doregister',[FrontendController::class,'store']);
+Route::post('/dologin',[FrontendController::class,'postlogin']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);

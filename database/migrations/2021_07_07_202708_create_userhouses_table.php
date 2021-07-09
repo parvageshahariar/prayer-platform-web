@@ -16,7 +16,7 @@ class CreateUserhousesTable extends Migration
         Schema::create('userhouses', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('role_id');
+            $table->string('status');
             $table->integer('house_id');
             $table->timestamps();
         });
