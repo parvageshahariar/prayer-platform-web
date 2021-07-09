@@ -4,4 +4,5 @@
 
 @section('content')
     <h1>Dashboard</h1>
+    <x-house-card />
 @endsection
