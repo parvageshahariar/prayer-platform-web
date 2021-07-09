@@ -9,7 +9,12 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Quicksand', 'system-ui'],
-      }
+      },
+      colors: {
+        blue: {
+          500:'#2980b9',
+        },
+      },
     },
   },
   variants: {
