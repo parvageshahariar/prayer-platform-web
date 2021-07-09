@@ -10,14 +10,18 @@
         @php
             $faker = Faker\Factory::create()
         @endphp
-        @for ($time = 1; $time <= 24; $time++)
-            @if ($time <= 12)
-                <div class="pt-2 border-t font-bold">{{ $time }}pm</div>
-                <div class="mb-2">{{ $faker->name() }}</div>
+        @for ($i = 1; $i <= 24; $i++)
+            @if ($i <= 12)
+                @php
+                    $time = $i . 'pm'
+                @endphp
             @else
-                <div class="pt-2 border-t font-bold">{{ $time-12 }}am</div>
-                <div class="mb-2">{{ $faker->name() }}</div>
+                @php
+                    $time = ($i - 12) . 'pm'
+                @endphp
             @endif
+            <div class="pt-2 border-t font-bold">{{ $time }}</div>
+            <div class="mb-2">{{ $faker->name() }}</div>
         @endfor
     </div>
 </div>
