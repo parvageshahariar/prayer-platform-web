@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,12 @@
 
     <link rel="stylesheet" href="css/app.css">
 </head>
+
 <body class="font-sans">
-    <x-navigation></x-navigation>
+    <x-navigation />
     <div class="container w-2/3 m-auto pt-8">
         @yield('content')
     </div>
 </body>
+
 </html>
