@@ -1,5 +1,5 @@
 <nav class="bg-gray-50">
-    <div class="w-4/5 m-auto flex justify-between">
+    <div class="w-2/3 m-auto flex justify-between">
         <a href="/" class="flex-shrink-0">
             <img class="h-24 -ml-3" src="assets/logo.png" alt="">
         </a>
