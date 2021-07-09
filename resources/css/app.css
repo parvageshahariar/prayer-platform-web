@@ -31,3 +31,11 @@ h4 {font-size: 1.44rem;}
 h5 {font-size: 1.2rem;}
 
 small, .text_small {font-size: 0.833rem;}
+
+.btn-primary {
+  @apply p-4 mb-2 inline-block bg-blue-500 text-white rounded
+}
+
+.btn-secondary {
+  @apply p-4 inline-block bg-gray-200 text-blue-500 rounded
+}
