@@ -4,8 +4,9 @@
             <img class="h-24 -ml-3" src="assets/logo.png" alt="">
         </a>
         <ul class="pb-3 md:p-0 md:flex text-center items-center">
-            <li><a class="m-3" href="/">Profile</a></li>
-            <li><a class="m-3" href="/">Logout</a></li>
+            <li><a class="m-3" href="/">Dashboard</a></li>
+            <li><a class="m-3" href="/profile">Profile</a></li>
+            <li><a class="m-3" href="/logout">Logout</a></li>
         </ul>
     </div>
 </nav>
