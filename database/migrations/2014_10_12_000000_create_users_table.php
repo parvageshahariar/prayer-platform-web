@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_number');
             $table->integer('timezone_id');
             $table->integer('role_id');
+            $table->tinyInteger('has_banned')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

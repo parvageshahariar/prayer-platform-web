@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Hash;
 class FrontendController extends Controller
 {
     //
+    public function __construct(){
+       // $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $user =  Auth::user();
+            if($user) {
+                return redirect()->intended('dashboard');
+            }  
+            return $next($request);
+        });
+    }
     public function index(){
         $arr = ['title'=>'Prayer Backend'];
         return view('frontend.home',compact('arr'));
@@ -38,21 +48,21 @@ class FrontendController extends Controller
             
             'password' => Hash::make($req['password'])
           ]);
-        return redirect()->back()->withSuccess(['success' => 'User registered successfully.']);
+        return redirect()->back()->withSuccess( 'User registered successfully.');
     }
 
     public function postlogin(Request $request){
         $request->validate([
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
    
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        $credentials = $request->only('email', 'password','has_banned');
+        if (Auth::attempt($credentials + ["has_banned" => 0])) {
             return redirect()->intended('dashboard')
                         ->withSuccess('You have Successfully loggedin');
         }
   
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("/")->withSuccess('Oppes! You have entered invalid credentials');
     }
 }
