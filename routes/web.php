@@ -25,3 +25,7 @@ Route::post('/doregister',[FrontendController::class,'store']);
 Route::post('/dologin',[FrontendController::class,'postlogin']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/profile', function() {
+    return view('profile');
+});
