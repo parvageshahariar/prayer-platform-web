@@ -12,7 +12,7 @@ class FrontendController extends Controller
     //
     public function index(){
         $arr = ['title'=>'Prayer Backend'];
-        return view('frontend.home',compact('arr'));
+        return view('home',compact('arr'));
     }
     public function store(Request $req){
         $this->validate(request(), [
