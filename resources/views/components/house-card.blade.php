@@ -24,7 +24,7 @@
             @endif
             <div class="border-b">
                 <div class="pt-2 font-bold">{{ $time }}</div>
-                <div class="mb-2">{{ $faker->name() }}</div>
+                <div class="mb-2">{{ $faker->firstName() }} {{ $faker->lastName() }}</div>
             </div>
         @endfor
     </div>
