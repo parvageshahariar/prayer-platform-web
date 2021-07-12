@@ -44,8 +44,9 @@ class DashboardController extends Controller
             'email' => 'required|email'
         ]);
        // print_r($request);
-       $email = User::where('email',$req['email'])->count();
-       if($email>1){
+       $user_id= Auth::id();
+       $email_count=User::where('email',$req['email'])->where('id', '!=', $user_id)->count();
+       if($email_count>0){
         return redirect()->back()->withErrors(['errors' => 'Email already exists.']);
        }
        

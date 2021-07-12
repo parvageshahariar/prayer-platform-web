@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\PrayerController;
 use App\Http\Controllers\Users;
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,11 @@ Route::get('/org_list', [OrganizationController::class, 'index']);
 Route::get('/create_org', [OrganizationController::class, 'create']);
 Route::post('/post_org', [OrganizationController::class, 'store']);
 Route::get('/org_list/delete/{id}', [OrganizationController::class, 'destroy']);
+
+Route::get('/prayer_house_list', [PrayerController::class, 'index']);
+Route::get('/create_payer_house', [PrayerController::class, 'create']);
+Route::post('/post_payer_house', [PrayerController::class, 'store']);
+Route::get('/prayer_house/delete/{id}', [PrayerController::class, 'destroy']);
+Route::get('/add_user_prayer_house', [PrayerController::class, 'create_add_user_to_prayer_house']); //
+Route::post('/post_add_user_prayer_house', [PrayerController::class, 'post_add_user_prayer_house']);
+

@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\House;
 use App\Models\User;
 use App\Models\Organization;
+use App\Models\Userhouse;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
-class OrganizationController extends Controller
+class PrayerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct(){
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
@@ -25,13 +22,17 @@ class OrganizationController extends Controller
             return $next($request);
         });
     }
-    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
-        $org_list = Organization::all();
-        $arr = ['title'=>'Organization list'];
-        return view('backoffice.org_list',compact('arr','org_list'));
+        $house_list = House::all();
+        $arr = ['title'=>'Payer House list'];
+        return view('backoffice.payer_house_list',compact('arr','house_list'));
     }
 
     /**
@@ -42,8 +43,9 @@ class OrganizationController extends Controller
     public function create()
     {
         //
-        $arr = ['title'=>'Create Organization'];
-        return view('backoffice.create_org',compact('arr'));
+        $org_list = Organization::all();
+        $arr = ['title'=>'Create Prayer House'];
+        return view('backoffice.create_prayer_house',compact('arr','org_list'));
     }
 
     /**
@@ -56,14 +58,16 @@ class OrganizationController extends Controller
     {
         //
         $request->validate([
-            'org_name' => 'required',
-            'description' => 'required'
+            'name' => 'required',
+            'description' => 'required',
+            'org' => 'required'
         ]);
-        Organization::create([
-            'name' => $request->org_name,
-            'description' => $request->description
+        House::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'organization_id' => $request->org
         ]);
-        return redirect("/org_list")->withSuccess('Organization created successfully.');
+        return redirect("/prayer_house_list")->withSuccess('Organization created successfully.');
     }
 
     /**
@@ -109,7 +113,27 @@ class OrganizationController extends Controller
     public function destroy($id)
     {
         //
-        $deletedRows = Organization::where('id', $id)->delete();
-        return redirect()->back()->withSuccess( 'Organization deleted successfully.');
+        $deletedRows = House::where('id', $id)->delete();
+        return redirect()->back()->withSuccess( 'Prayer house deleted successfully.');
     }
+    public function create_add_user_to_prayer_house(){
+        $house_list = House::all();
+        $user_list = User::all();
+        $arr = ['title'=>'Add user to prayer house'];
+        return view('backoffice.add_user_to_prayer_house',compact('arr','house_list','user_list'));
+    }
+
+    public function post_add_user_prayer_house(Request $request){
+        $request->validate([
+            'user' => 'required',
+            'house' => 'required'
+        ]);
+        Userhouse::create([
+            'user_id' => $request->user,
+            'house_id' => $request->house,
+            'status' => $request->status
+        ]);
+        return redirect("/add_user_prayer_house")->withSuccess('User added to prayer house successfully.');
+    }
+  
 }
