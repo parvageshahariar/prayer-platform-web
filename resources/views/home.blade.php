@@ -9,6 +9,8 @@
             <a class="btn-primary" href="/house/join">Join a House</a>
         </div>
     </div>
-    
+    @foreach ($users as $user)
+        <li>{{ $user->first_name }}</li>
+    @endforeach
     <x-house-card />
 @endsection

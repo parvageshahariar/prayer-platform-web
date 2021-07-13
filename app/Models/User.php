@@ -40,4 +40,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The organization a user is apart of.
+     */
+    public function organizations() {
+        return $this->belongsToMany(Organization::class);
+    }
 }
