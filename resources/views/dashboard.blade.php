@@ -1,17 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
+@section('title', 'Dashboard')
+
+@section('content')
+    <div class="flex flex-wrap justify-between">
+        <h1 class="inline-block">Dashboard</h1>
+        <div>
+            <a class="btn-primary" href="/house/join">Join a House</a>
         </div>
     </div>
-</x-app-layout>
+    <x-house-card />
+@endsection
