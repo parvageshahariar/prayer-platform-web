@@ -55,7 +55,8 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        //
+        $organization = Organization::findOrFail($id);
+        return view('organization.show', compact('organization'));
     }
 
     /**
@@ -66,7 +67,8 @@ class OrganizationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $organization = Organization::findOrFail($id);
+        return view('organization.edit', compact('organization'));
     }
 
     /**
@@ -78,7 +80,11 @@ class OrganizationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $organization = Organization::findOrFail($id);
+        $organization->name = $request->name;
+        $organization->description = $request->name;
+        $organization->save();
+        return redirect('dashboard')->with('success', 'Successfully updated '.$organization->name);
     }
 
     /**
