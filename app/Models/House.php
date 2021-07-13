@@ -15,4 +15,11 @@ class House extends Model
     public function users() {
         return $this->belongsToMany(User::class);
     }
+
+    /**
+     * The organization the house belongs to.
+     */
+    public function organization() {
+        return $this->belongsTo(Organization::class);
+    }
 }

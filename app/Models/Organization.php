@@ -15,4 +15,11 @@ class Organization extends Model
     public function users() {
         return $this->belongsToMany(User::class);
     }
+
+    /**
+     * The houses a organization has.
+     */
+    public function houses() {
+        return $this->hasMany(House::class);
+    }
 }
