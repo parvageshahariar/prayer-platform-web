@@ -6,7 +6,12 @@
         <ul class="pb-3 md:p-0 md:flex text-center items-center">
             <li><a class="m-3" href="/">Dashboard</a></li>
             <li><a class="m-3" href="/profile">Profile</a></li>
-            <li><a class="m-3" href="/logout">Logout</a></li>
+            <li>
+                <form class="m-3" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
         </ul>
     </div>
 </nav>
