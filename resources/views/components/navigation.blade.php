@@ -1,6 +1,6 @@
 <nav class="w-3/4 m-auto pl-8 pr-8 mt-3 bg-gray-50 rounded-lg">
     <div class=" m-auto md:flex justify-between">
-        <a href="/" class="flex-shrink-0">
+        <a href="{{ route('dashboard') }}" class="flex-shrink-0">
             <img class="max-h-24 md:-ml-3" src="{{ asset('assets/logo.png') }}" alt="">
         </a>
         <ul class="pb-3 md:p-0 md:flex text-center items-center">
