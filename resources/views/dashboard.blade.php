@@ -1,5 +1,5 @@
 <x-app-layout title="Dashboard">
-    <h1 class="inline-block">Dashboard</h1>
+    <h1 class="inline-block">Welcome back, {{ $user->first_name }}</h1>
     @foreach ($organizations as $org)
         <x-organization-card :data="$org" />
     @endforeach
