@@ -8,6 +8,7 @@ class OrganizationCard extends Component
 {
     public $name;
     public $description;
+    public $id;
 
     /**
      * Create a new component instance.
@@ -18,6 +19,7 @@ class OrganizationCard extends Component
     {
         $this->name = $data->name;
         $this->description = $data->description;
+        $this->id = $data->id;
     }
 
     /**
