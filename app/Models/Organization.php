@@ -10,6 +10,17 @@ class Organization extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
+
+    /**
      * The users that are apart of the organization.
      */
     public function users() {
