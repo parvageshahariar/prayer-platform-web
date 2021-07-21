@@ -9,6 +9,11 @@ class Group extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
     /**
      * The organization the group belongs to.
      */
