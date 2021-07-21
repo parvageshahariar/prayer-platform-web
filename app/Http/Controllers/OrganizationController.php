@@ -50,24 +50,22 @@ class OrganizationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Organization  $organization
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Organization $organization)
     {
-        $organization = Organization::findOrFail($id);
         return view('organization.show', compact('organization'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Organization  $organization
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Organization $organization)
     {
-        $organization = Organization::findOrFail($id);
         return view('organization.edit', compact('organization'));
     }
 
@@ -75,12 +73,11 @@ class OrganizationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Organization  $organization
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Organization $organization)
     {
-        $organization = Organization::findOrFail($id);
         $organization->name = $request->name;
         $organization->description = $request->name;
         $organization->save();
