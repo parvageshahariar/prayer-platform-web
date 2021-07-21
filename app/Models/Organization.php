@@ -17,9 +17,9 @@ class Organization extends Model
     }
 
     /**
-     * The houses a organization has.
+     * The groups that belong to the organization.
      */
-    public function houses() {
-        return $this->hasMany(House::class);
+    public function groups() {
+        return $this->hasMany(Group::class);
     }
 }
