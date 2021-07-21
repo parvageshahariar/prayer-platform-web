@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Profile')
-
-@section('content')
+<x-app-layout title="Profile">
     <h1 class="mb-0">Profile</h1>
     <span>Let's keep that info up to date!</span>
 
@@ -16,4 +12,4 @@
     <div class="">
         <span>Here is what we do with your info.</span>
     </div>
-@endsection
+</x-app-layout>
