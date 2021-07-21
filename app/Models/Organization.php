@@ -24,7 +24,7 @@ class Organization extends Model
      * The users that are apart of the organization.
      */
     public function users() {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(User::class);
     }
 
     /**
