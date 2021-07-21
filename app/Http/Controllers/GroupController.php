@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -12,10 +13,10 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Organization $organization)
     {
-        $groups = Group::all();
-        return view('group.list', compact('groups'));
+        $groups = $organization->groups;
+        return view('group.list', compact('organization', 'groups'));
     }
 
     /**
@@ -53,7 +54,7 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Organization $organization, Group $group)
     {
         return view('group.show', compact('group'));
     }
