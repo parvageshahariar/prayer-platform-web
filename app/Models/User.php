@@ -47,11 +47,4 @@ class User extends Authenticatable
     public function organizations() {
         return $this->belongsToMany(Organization::class);
     }
-
-    /** 
-     * The houses a user is apart of.
-     */
-    public function houses() {
-        return $this->belongsToMany(House::class);
-    }
 }

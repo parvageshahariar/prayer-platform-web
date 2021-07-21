@@ -19,7 +19,6 @@ class AddColumnsToUsersTable extends Migration
             $table->string('phone_number', 20)->nullable();
             $table->integer('timezone_offset')->nullable();
             $table->dateTime('banned_at')->nullable();
-            $table->unsignedBigInteger('role_id')->nullable();
         });
     }
 
@@ -36,7 +35,6 @@ class AddColumnsToUsersTable extends Migration
             $table->dropColumn('phone_number');
             $table->dropColumn('timezone_offset');
             $table->dropColumn('banned_at');
-            $table->dropColumn('role_id');
         });
     }
 }
