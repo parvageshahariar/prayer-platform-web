@@ -9,5 +9,4 @@
             <a class="btn-primary" href="/house/join">Join a House</a>
         </div>
     </div>
-    <x-house-card />
 @endsection
