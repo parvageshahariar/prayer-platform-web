@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title') - The Prayer Platform</title>
+        <title>{{ $title }} - The Prayer Platform</title>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -16,7 +16,7 @@
     <body class="font-sans">
         <x-navigation />
         <div class="container w-2/3 m-auto pt-8">
-            @yield('content')
+            {{ $slot }}
         </div>
     </body>
 </html>
