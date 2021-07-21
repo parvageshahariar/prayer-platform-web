@@ -1,6 +1,6 @@
 <x-app-layout :title="Edit $organization->name">
     <h1>Edit {{ $organization->name }}</h1>
-    <form class="w-1/2 ml-auto mr-auto grid grid-cols-2 gap-3" action="{{ route('organization.update', $organization->id) }}" method="POST">
+    <form class="w-1/2 ml-auto mr-auto grid grid-cols-2 gap-3" action="{{ route('organizations.update', $organization->id) }}" method="POST">
         @method('PATCH')
         @csrf
         <input class="col-span-1" type="text" name="name" placeholder="Name" value="{{ $organization->name }}">

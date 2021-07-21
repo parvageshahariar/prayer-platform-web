@@ -23,8 +23,8 @@ Route::group(['middleware' => 'auth'], function() {
         return view('profile');
     });
 
-    Route::resource('organization', OrganizationController::class);
-    Route::resource('group', GroupController::class);
+    Route::resource('organizations', OrganizationController::class);
+    Route::resource('groups', GroupController::class);
 });
 
 require __DIR__.'/auth.php';
