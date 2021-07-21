@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\OrganizationController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::resource('organization', OrganizationController::class);
+    Route::resource('group', GroupController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -14,7 +14,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::all();
+        return view('group.list', compact('groups'));
     }
 
     /**
@@ -24,7 +25,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('group.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        validator([
+            'name' => 'required'
+        ]);
+        $group = new Group;
+        $group->name = $request->name;
+        $group->description = $request->name;
+        $group->save();
+
+        return redirect('dashboard')->with('success', 'Group created successfully.');
     }
 
     /**
@@ -46,7 +55,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        return view('group.show', compact('group'));
     }
 
     /**
@@ -57,7 +66,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('group.edit', compact('group'));
     }
 
     /**
