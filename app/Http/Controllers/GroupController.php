@@ -24,9 +24,9 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Organization $organization)
     {
-        return view('group.create');
+        return view('group.create', compact('organization'));
     }
 
     /**
@@ -35,15 +35,16 @@ class GroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Organization $organization)
     {
         validator([
             'name' => 'required'
         ]);
+
         $group = new Group;
         $group->name = $request->name;
         $group->description = $request->name;
-        $group->save();
+        $organization->groups()->save($group);
 
         return redirect('dashboard')->with('success', 'Group created successfully.');
     }
