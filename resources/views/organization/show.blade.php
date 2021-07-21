@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', $organization->name)
-
-@section('content')
-<h1>{{ $organization->name }}</h1>
-<p>{{ $organization->description }}</p>
-@endsection
+<x-app-layout :title="$organization->name">
+    <h1>{{ $organization->name }}</h1>
+    <p>{{ $organization->description }}</p>
+</x-app-layout>
