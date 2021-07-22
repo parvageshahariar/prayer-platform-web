@@ -81,7 +81,7 @@ class OrganizationController extends Controller
     public function update(Request $request, Organization $organization)
     {
         $organization->name = $request->name;
-        $organization->description = $request->name;
+        $organization->description = $request->description;
         $organization->save();
         return redirect('dashboard')->with('success', 'Successfully updated ' . $organization->name);
     }
