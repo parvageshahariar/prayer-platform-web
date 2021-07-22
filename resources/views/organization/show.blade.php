@@ -12,4 +12,12 @@
     @else
         <p>This organization has no groups yet.</p>
     @endif
+    <div class="flex flex-wrap">
+        <a class="btn-primary mr-2" href="{{ route('organizations.edit', ['organization'=>$organization]) }}">Edit</a>
+        <form action="{{ route('organizations.destroy', ['organization'=>$organization]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn-primary" type="submit">Delete</button>
+        </form>
+    </div>
 </x-app-layout>
