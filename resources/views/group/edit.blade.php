@@ -1,4 +1,4 @@
-<x-app-layout :title="Edit $group->name">
+<x-app-layout title="Edit {{ $group->name }}">
     <h1>Edit {{ $group->name }}</h1>
     <form class="w-1/2 ml-auto mr-auto grid grid-cols-2 gap-3" action="{{ route('groups.update', $group->id) }}" method="POST">
         @method('PATCH')
