@@ -48,4 +48,11 @@ class User extends Authenticatable
     public function organizations() {
         return $this->belongsToMany(Organization::class);
     }
+
+    /**
+     * The prayer requests a user has submitted.
+     */
+    public function prayerRequests() {
+        return $this->hasMany(PrayerRequest::class);
+    }
 }
