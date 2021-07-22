@@ -55,7 +55,9 @@ class OrganizationController extends Controller
      */
     public function show(Organization $organization)
     {
-        return view('organization.show', compact('organization'));
+        $groups = $organization->groups;
+        
+        return view('organization.show', compact('organization', 'groups'));
     }
 
     /**
@@ -81,7 +83,7 @@ class OrganizationController extends Controller
         $organization->name = $request->name;
         $organization->description = $request->name;
         $organization->save();
-        return redirect('dashboard')->with('success', 'Successfully updated '.$organization->name);
+        return redirect('dashboard')->with('success', 'Successfully updated ' . $organization->name);
     }
 
     /**
