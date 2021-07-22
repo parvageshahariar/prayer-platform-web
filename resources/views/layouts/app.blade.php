@@ -15,7 +15,7 @@
     </head>
     <body class="font-sans">
         <x-navigation />
-        <div class="container w-2/3 m-auto pt-8">
+        <div class="container md:w-2/3 w-5/6 m-auto pt-8">
             {{ $slot }}
         </div>
     </body>
