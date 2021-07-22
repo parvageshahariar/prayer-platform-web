@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function() {
+    return view('home');
+});
+
 Route::group(['middleware' => 'auth'], function() { 
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
