@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index() {
-        $users = User::all();
-        $organizations = Organization::all();
         $user = Auth::user();
-        return view('dashboard')->with(compact('user','users', 'organizations'));
+        $organizations = $user->organizations;
+        return view('dashboard')->with(compact('user', 'organizations'));
     }
 }
