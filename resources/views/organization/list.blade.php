@@ -1,5 +1,8 @@
 <x-app-layout title="List of Organizations">
-    <h1>Organizations</h1>
+    <div class="flex items-center justify-between">
+        <h1>Organizations</h1>
+        <a class="btn btn-primary" href="{{ route('organizations.create') }}">Create an Organization</a>
+    </div>
     @if ($organizations)
         <ul>
             @foreach ($organizations as $organization)
