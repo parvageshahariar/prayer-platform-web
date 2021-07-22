@@ -13,9 +13,16 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Organization $organization)
+    public function index(Request $request)
     {
-        $groups = $organization->groups;
+        if ($request->organization_id) {
+            $organization = Organization::findOrFail($request->organization_id);
+            $groups = $organization->groups;
+        } else {
+            $organization = false;
+            $groups = Group::all();
+        }
+        
         return view('group.list', compact('organization', 'groups'));
     }
 
@@ -24,8 +31,11 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Organization $organization)
+    public function create(Request $request)
     {
+        if ($request->organization_id) {
+            $organization = Organization::find($request->organization_id);
+        }
         return view('group.create', compact('organization'));
     }
 
@@ -35,11 +45,12 @@ class GroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Organization $organization)
+    public function store(Request $request)
     {
         validator([
             'name' => 'required'
         ]);
+        $organization = Organization::findOrFail($request->organization_id);
 
         $group = new Group;
         $group->name = $request->name;
@@ -55,7 +66,7 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Organization $organization, Group $group)
+    public function show(Group $group)
     {
         return view('group.show', compact('group'));
     }

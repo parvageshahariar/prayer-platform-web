@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::resource('organizations', OrganizationController::class);
-    Route::resource('organizations/{organization}/groups', GroupController::class);
+    Route::resource('groups', GroupController::class);
 });
 
 require __DIR__.'/auth.php';
