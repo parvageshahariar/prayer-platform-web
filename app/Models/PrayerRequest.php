@@ -9,6 +9,10 @@ class PrayerRequest extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'content'
+    ];
+
     /**
      * The group the prayer request belongs to.
      */
