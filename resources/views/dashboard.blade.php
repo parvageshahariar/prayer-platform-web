@@ -5,7 +5,7 @@
         @foreach ($organizations as $organization)
             <li>{{ $organization->name }}</li>
         @endforeach
-    @else
+    @elseif (count($organizations))
         <x-organization-card :data="$organizations[0]">
             @foreach ($organizations[0]->groups as $group)
                 <li>{{ $group->name }}</li>
