@@ -92,7 +92,7 @@ class GroupController extends Controller
     public function update(Request $request, Group $group)
     {
         $group->name = $request->name;
-        $group->description = $request->name;
+        $group->description = $request->description;
         $group->save();
         return redirect('dashboard')->with('success', 'Successfully updated '.$group->name);
     }
