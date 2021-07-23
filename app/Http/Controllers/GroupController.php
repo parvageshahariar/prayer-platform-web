@@ -52,7 +52,7 @@ class GroupController extends Controller
 
         $group = new Group;
         $group->name = $request->name;
-        $group->description = $request->name;
+        $group->description = $request->description;
         $organization->groups()->save($group);
 
         return redirect('dashboard')->with('success', 'Group created successfully.');
