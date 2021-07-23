@@ -11,7 +11,7 @@
     </div>
     <ol>
         @foreach ($prayerRequests as $prayerRequest)
-            <li class="max-w-md bg-gray-100 p-3">{{ $prayerRequest->content }} <a href="{{ route('prayer-requests.edit', ['prayer_request'=>$prayerRequest]) }}">Edit</a><br>{{ $prayerRequest->user->first_name }} {{ $prayerRequest->user->last_name }}</li>
+            <li class="max-w-md bg-gray-100 p-3">{{ $prayerRequest->content }} <a class="ml-10" href="{{ route('prayer-requests.edit', ['prayer_request'=>$prayerRequest]) }}">Edit</a><br>{{ $prayerRequest->user->first_name }} {{ $prayerRequest->user->last_name }}</li>
         @endforeach
     </ol>
     <a href="{{ route('prayer-requests.create', ['group'=>$group]) }}">Add a prayer request</a>
