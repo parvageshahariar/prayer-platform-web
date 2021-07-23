@@ -21,6 +21,13 @@ class PrayerRequest extends Model
     }
 
     /**
+     * The user that submitted the prayer request.
+     */
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * The comments that belong to the prayer request.
      */
     public function comments() {
