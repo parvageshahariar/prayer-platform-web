@@ -24,14 +24,14 @@ Route::get('/', function() {
 });
 
 Route::group(['middleware' => 'auth'], function() { 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', function() {
         return view('profile');
     });
 
     Route::resource('organizations', OrganizationController::class);
-    Route::resource('groups', GroupController::class)->middleware('can:view-group,group');
+    Route::resource('groups', GroupController::class);
     Route::resource('prayer-requests', PrayerRequestController::class);
 });
 

@@ -55,6 +55,8 @@ class OrganizationController extends Controller
      */
     public function show(Organization $organization)
     {
+        $this->authorize('view-organization', $organization);
+
         $groups = $organization->groups;
         
         return view('organization.show', compact('organization', 'groups'));

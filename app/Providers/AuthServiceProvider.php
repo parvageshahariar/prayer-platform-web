@@ -28,5 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('view-group', function($user, $group) {
             return $user->groups->contains($group);
         });
+
+        Gate::define('view-organization', function($user, $organization) {
+            return $user->organizations->contains($organization);
+        });
     }
 }
