@@ -9,6 +9,10 @@ class PrayerRequestComment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'content'
+    ];
+
     /**
      * The prayer request the comment belongs to.
      */
