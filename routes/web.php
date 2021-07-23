@@ -4,6 +4,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PrayerRequestController;
+use App\Models\Group;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     Route::resource('organizations', OrganizationController::class);
-    Route::resource('groups', GroupController::class);
+    Route::resource('groups', GroupController::class)->middleware('can:view-group,group');
     Route::resource('prayer-requests', PrayerRequestController::class);
 });
 
