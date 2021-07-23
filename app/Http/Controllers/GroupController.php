@@ -31,8 +31,9 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Organization $organization, Request $request)
+    public function create(Request $request)
     {
+        $organization = Organization::findOrFail($request->organization);
         return view('group.create', compact('organization'));
     }
 
