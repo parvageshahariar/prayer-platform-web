@@ -14,10 +14,10 @@ class CreateOrganizationUserTable extends Migration
     public function up()
     {
         Schema::create('organization_user', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('user_id');
             $table->foreignId('organization_id');
             $table->timestamps();
+            $table->primary(['organization_id', 'user_id'], 'id');
         });
     }
 
