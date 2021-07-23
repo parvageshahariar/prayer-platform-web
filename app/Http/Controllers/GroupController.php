@@ -67,6 +67,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
+        $this->authorize('view-group', $group);
+
         $prayerRequests = $group->prayerRequests;
         return view('group.show', compact('group', 'prayerRequests'));
     }
