@@ -55,4 +55,11 @@ class User extends Authenticatable
     public function prayerRequests() {
         return $this->hasMany(PrayerRequest::class);
     }
+
+    /**
+     * The groups a user is apart of.
+     */
+    public function groups() {
+        return $this->belongsToMany(Group::class);
+    }
 }

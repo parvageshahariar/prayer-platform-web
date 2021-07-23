@@ -20,6 +20,9 @@ class Group extends Model
     public function organization() {
         return $this->belongsTo(Organization::class);
     }
+    /**
+     * The users that are apart of the group.
+     */
 
     /**
      * The prayer requests that belong to the group.
