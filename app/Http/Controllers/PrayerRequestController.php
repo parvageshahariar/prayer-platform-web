@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\PrayerRequest;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PrayerRequestController extends Controller
      */
     public function index()
     {
-        //
+        $prayerRequests = PrayerRequest::all();
+        return view('prayer-request.list', compact('prayerRequests'));
     }
 
     /**
@@ -22,9 +24,10 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $group = Group::findOrFail($request->group);
+        return view('prayer-request.create', compact('group'));
     }
 
     /**
@@ -35,7 +38,15 @@ class PrayerRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth()->user();
+        $group = Group::findOrFail($request->group_id);
+        $prayerRequest = new PrayerRequest;
+        $prayerRequest->content = $request->content;
+        $prayerRequest->group_id = $group->id;
+        $prayerRequest->user_id = $user->id;
+        $prayerRequest->save();
+
+        return redirect(route('groups.show', $group));
     }
 
     /**
@@ -46,7 +57,7 @@ class PrayerRequestController extends Controller
      */
     public function show(PrayerRequest $prayerRequest)
     {
-        //
+        return view('prayer-request.show', compact('prayerRequest'));
     }
 
     /**
@@ -57,7 +68,7 @@ class PrayerRequestController extends Controller
      */
     public function edit(PrayerRequest $prayerRequest)
     {
-        //
+        return view('prayer-request.edit', compact('prayerRequest'));
     }
 
     /**
@@ -69,7 +80,9 @@ class PrayerRequestController extends Controller
      */
     public function update(Request $request, PrayerRequest $prayerRequest)
     {
-        //
+        $prayerRequest->content = $request->content;
+        $prayerRequest->save();
+        return redirect(route('prayer-requests.show', $prayerRequest));
     }
 
     /**
@@ -80,6 +93,7 @@ class PrayerRequestController extends Controller
      */
     public function destroy(PrayerRequest $prayerRequest)
     {
-        //
+        $prayerRequest->delete();
+        return redirect(route('dashboard'));
     }
 }

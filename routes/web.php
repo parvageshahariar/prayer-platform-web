@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\PrayerRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('organizations', OrganizationController::class);
     Route::resource('groups', GroupController::class);
+    Route::resource('prayer-requests', PrayerRequestController::class);
 });
 
 require __DIR__.'/auth.php';
