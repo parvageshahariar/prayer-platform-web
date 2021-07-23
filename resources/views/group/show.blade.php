@@ -14,4 +14,5 @@
             <li class="max-w-md bg-gray-100 p-3">{{ $prayer->content }}<br>{{ $prayer->user->first_name }} {{ $prayer->user->last_name }}</li>
         @endforeach
     </ol>
+    <a href="{{ route('prayer-requests.create', ['group'=>$group]) }}">Add a prayer request</a>
 </x-app-layout>
