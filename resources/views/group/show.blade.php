@@ -10,8 +10,8 @@
         </form>
     </div>
     <ol>
-        @foreach ($prayerRequests as $prayer)
-            <li class="max-w-md bg-gray-100 p-3">{{ $prayer->content }}<br>{{ $prayer->user->first_name }} {{ $prayer->user->last_name }}</li>
+        @foreach ($prayerRequests as $prayerRequest)
+            <li class="max-w-md bg-gray-100 p-3">{{ $prayerRequest->content }}<br>{{ $prayerRequest->user->first_name }} {{ $prayerRequest->user->last_name }}</li>
         @endforeach
     </ol>
     <a href="{{ route('prayer-requests.create', ['group'=>$group]) }}">Add a prayer request</a>
