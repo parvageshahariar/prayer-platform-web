@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Organization;
+use App\Models\PrayerRequest;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -66,7 +67,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        return view('group.show', compact('group'));
+        $prayerRequests = $group->prayerRequests;
+        return view('group.show', compact('group', 'prayerRequests'));
     }
 
     /**

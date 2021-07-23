@@ -9,4 +9,9 @@
             <button class="btn-primary" type="submit">Delete</button>
         </form>
     </div>
+    <ol>
+        @foreach ($prayerRequests as $prayer)
+            <li class="max-w-md bg-gray-100 p-3">{{ $prayer->content }}<br>{{ $prayer->user->first_name }} {{ $prayer->user->last_name }}</li>
+        @endforeach
+    </ol>
 </x-app-layout>
