@@ -14,10 +14,11 @@ class CreateGroupUserTable extends Migration
     public function up()
     {
         Schema::create('group_user', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('group_id');
             $table->foreignId('user_id');
             $table->timestamps();
+
+            $table->primary(['group_id', 'user_id'], 'id');
         });
     }
 
